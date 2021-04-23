@@ -1,3 +1,4 @@
+import Profile from 'lichess/dist/endpoints/profile'
 import React from 'react'
 
 import token from '../credentials'
@@ -7,6 +8,7 @@ class Home extends React.Component {
     super(props)
     this.state = {
       error: null,
+      isLoaded: false,
       account: []
     }
   }
@@ -23,6 +25,7 @@ class Home extends React.Component {
           console.log('This is data', result)
 
           this.setState({
+            isLoaded: true,
             account: result
           })
         },
@@ -35,12 +38,18 @@ class Home extends React.Component {
   }
 
   render() {
-    const { account, error } = this.state
-
+    const { account, error, isLoaded } = this.state
     if (error) {
-      return <div>Erreur : Il y a une erreur</div>
+      return <div>Error !</div>
+    } else if (!isLoaded) {
+      return <div>Loading</div>
     } else {
-      return <h1>{account.id}</h1>
+      return (
+        <>
+          <h1>{account.username}</h1>
+          <p>{account.profile.bio}</p>
+        </>
+      )
     }
   }
 }
