@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Icon, Menu } from 'semantic-ui-react'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 
-export default class Nav extends Component {
+class Nav extends Component {
   render() {
     return (
       <>
@@ -26,3 +26,5 @@ export default class Nav extends Component {
     )
   }
 }
+
+export default Nav

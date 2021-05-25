@@ -1,17 +1,15 @@
 import React from 'react'
 import './App.css'
 import ApiContextProvider from './components/ApiContextProvider'
-import Header from './components/Header'
-import TableRanking from './components/TableRanking'
+import Routes from './components/navigation/Routes'
 
 function App() {
   return (
-    <ApiContextProvider>
-      <div className="App">
-        <Header />
-        <TableRanking />
-      </div>
-    </ApiContextProvider>
+    <>
+      <ApiContextProvider>
+        <Routes />
+      </ApiContextProvider>
+    </>
   )
 }
 
