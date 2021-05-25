@@ -1,11 +1,15 @@
+import React from 'react'
 import './App.css'
-import Home from './components/Home'
+import ApiContextProvider from './components/ApiContextProvider'
+import Routes from './components/navigation/Routes'
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <>
+      <ApiContextProvider>
+        <Routes />
+      </ApiContextProvider>
+    </>
   )
 }
 
